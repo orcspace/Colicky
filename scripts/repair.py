@@ -84,6 +84,12 @@ for project in (ROOT / 'Source').glob('*/*.csproj'):
     root = tree.getroot()
     properties = root.find('PropertyGroup')
     properties.find('TargetFramework').text = 'net9.0'
+    if project.parent.name == 'HeyClicky':
+        for key, value in {'OutputType': 'WinExe', 'StartupObject': 'HeyClicky.App.Program', 'UseAppHost': 'false'}.items():
+            element = properties.find(key)
+            if element is None:
+                element = ET.SubElement(properties, key)
+            element.text = value
     nullable = properties.find('Nullable')
     if nullable is None:
         nullable = ET.SubElement(properties, 'Nullable')
