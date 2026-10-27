@@ -1,0 +1,81 @@
+name: Recover source and verify Windows build
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/**', '.github/workflows/recover.yml', 'Source/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: recovery-main
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    outputs:
+      source_sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover unpacked source and resources
+        shell: bash
+        run: |
+          if [ ! -d Source ]; then
+            dotnet tool install ilspycmd --version 11.2.0.10050 --tool-path .cache/tools
+            python scripts/recover.py --decompiler "$PWD/.cache/tools/ilspycmd"
+          else
+            python scripts/repair.py
+          fi
+      - name: Commit unpacked project
+        id: commit
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Source Assets BundledResources ClickyBrowserExtension HeyClicky.deps.json HeyClicky.runtimeconfig.json recovery.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Recover unpacked C# source and app resources from verified installer'
+            git push origin HEAD:main
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  build:
+    needs: recover
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.recover.outputs.source_sha }}
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare verified original dependency assemblies
+        run: python scripts/recover.py --prepare-only
+      - name: Build all source modules and retain diagnostics
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory artifacts/logs -Force | Out-Null
+          $failed = @()
+          foreach ($module in @('HeyClicky.Contracts', 'HeyClicky.Core', 'HeyClicky.Agents', 'HeyClicky.Platform', 'HeyClicky.Drawing', 'HeyClicky.Drawing3D', 'HeyClicky')) {
+            dotnet build "Source/$module/$module.csproj" -c Release -v:minimal 2>&1 | Tee-Object -FilePath "artifacts/logs/$module.log"
+            if ($LASTEXITCODE -ne 0) { $failed += $module }
+          }
+          if ($failed.Count -gt 0) { throw "Source recovery remains incomplete: $($failed -join ', '). See diagnostics artifact." }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-build-diagnostics
+          path: artifacts/logs
