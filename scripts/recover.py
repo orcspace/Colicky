@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import urllib.request
@@ -37,16 +38,28 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--prepare-only', action='store_true')
     parser.add_argument('--decompiler', default='ilspycmd')
+    parser.add_argument('--fallback-decompiler')
+    parser.add_argument('--fill-missing', action='store_true')
     args = parser.parse_args()
     app = prepare()
     if args.prepare_only:
         print('Verified original runtime:', app)
         return
     source = ROOT / 'Source'
-    if source.exists():
+    if source.exists() and not args.fill_missing:
         raise SystemExit('Source already exists. Preserve your edits or move it before re-decompiling.')
     for assembly in ASSEMBLIES:
-        subprocess.run([args.decompiler, '-p', '-o', str(source / assembly), '-r', str(app), str(app / (assembly + '.dll'))], check=True)
+        if not args.fill_missing:
+            subprocess.run([args.decompiler, '-p', '-o', str(source / assembly), '-r', str(app), str(app / (assembly + '.dll'))], check=True)
+        if args.fallback_decompiler:
+            fallback = ROOT / '.cache' / 'fallback' / assembly
+            subprocess.run([args.fallback_decompiler, '-p', '-o', str(fallback), '-r', str(app), str(app / (assembly + '.dll'))], check=True, env=dict(os.environ, DOTNET_ROLL_FORWARD='Major'))
+            for original in fallback.rglob('*'):
+                if original.is_file():
+                    recovered = source / assembly / original.relative_to(fallback)
+                    if not recovered.exists() or recovered.stat().st_size == 0:
+                        recovered.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(original, recovered)
     for name in ['Assets', 'BundledResources', 'ClickyBrowserExtension']:
         shutil.copytree(app / name, ROOT / name, dirs_exist_ok=True)
     for name in ['HeyClicky.deps.json', 'HeyClicky.runtimeconfig.json']:
