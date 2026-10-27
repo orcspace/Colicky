@@ -86,6 +86,26 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Smoke tests failed.' }
       - name: Stage recovered Windows runtime
         run: ./scripts/build.ps1
+      - name: Probe Windows UI process in demo mode
+        shell: pwsh
+        run: |
+          $env:HEYCLICKY_DATA_DIR = Join-Path $env:RUNNER_TEMP 'colicky-ui-probe'
+          $env:HEYCLICKY_OFFSCREEN = '1'
+          New-Item -ItemType Directory -Force $env:HEYCLICKY_DATA_DIR | Out-Null
+          $app = (Resolve-Path 'artifacts/runtime/HeyClicky.exe').Path
+          $process = Start-Process $app -ArgumentList '--fakes','--demo-only','--e2e' -WorkingDirectory (Split-Path $app) -PassThru -RedirectStandardOutput 'artifacts/logs/ui-stdout.log' -RedirectStandardError 'artifacts/logs/ui-stderr.log'
+          try {
+            Start-Sleep -Seconds 12
+            $process.Refresh()
+            if ($process.HasExited) {
+              Get-Content artifacts/logs/ui-stderr.log -ErrorAction SilentlyContinue
+              throw "UI process exited during startup (code $($process.ExitCode))."
+            }
+            Write-Host 'PASS: rebuilt Windows demo process stayed alive for 12 seconds. This is not full UI or backend validation.'
+          } finally {
+            if (-not $process.HasExited) { Stop-Process -Id $process.Id -Force }
+            Copy-Item "$env:HEYCLICKY_DATA_DIR/*" artifacts/logs -Recurse -Force -ErrorAction SilentlyContinue
+          }
       - uses: actions/upload-artifact@v4
         if: always()
         with:
