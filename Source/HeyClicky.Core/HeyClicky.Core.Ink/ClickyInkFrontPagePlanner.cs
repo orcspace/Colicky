@@ -83,13 +83,13 @@ public static class ClickyInkFrontPagePlanner
 
 		public Dictionary<string, string> StoryOfPage { get; init; } = new Dictionary<string, string>();
 
-		public string LastStoryID { get; init; } = "";
+		public string LastStoryID { get; set; } = "";
 
-		public List<string> OverflowNames { get; init; } = new List<string>();
+		public List<string> OverflowNames { get; set; } = new List<string>();
 
-		public bool Fits { get; init; } = true;
+		public bool Fits { get; set; } = true;
 
-		public string? LeadFallbackTitle { get; init; }
+		public string? LeadFallbackTitle { get; set; }
 	}
 
 	private sealed record Story(string Id, string Name, bool IsLead, List<Piece> Pieces);

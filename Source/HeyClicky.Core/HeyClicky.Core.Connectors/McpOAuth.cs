@@ -354,7 +354,6 @@ public static class McpOAuth
 		}
 	}
 
-	[GeneratedRegex("([A-Za-z_]+)\\s*=\\s*\"([^\"]*)\"")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex ChallengeParameter()
 	{

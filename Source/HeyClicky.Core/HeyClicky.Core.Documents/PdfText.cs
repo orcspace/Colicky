@@ -1120,105 +1120,90 @@ public static class PdfText
 		}
 	}
 
-	[GeneratedRegex("(?<![\\d])(\\d+)\\s+(\\d+)\\s+obj\\b")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex ObjectHeader()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__ObjectHeader_20.Instance;
 	}
 
-	[GeneratedRegex("/Length\\s+(\\d+)(?!\\s+\\d+\\s+R)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex DirectLengthPattern()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__DirectLengthPattern_21.Instance;
 	}
 
-	[GeneratedRegex("/Root\\s+(\\d+)\\s+\\d+\\s+R")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex RootReference()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__RootReference_22.Instance;
 	}
 
-	[GeneratedRegex("/Encrypt\\s+(\\d+\\s+\\d+\\s+R|<<)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex EncryptReference()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__EncryptReference_23.Instance;
 	}
 
-	[GeneratedRegex("/Type\\s*/Page(?![s\\w])")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex PageType()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__PageType_24.Instance;
 	}
 
-	[GeneratedRegex("(\\d+)\\s+\\d+\\s+R")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex IndirectReference()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__IndirectReference_25.Instance;
 	}
 
-	[GeneratedRegex("/([^\\s/<>\\[\\]()]+)\\s+(\\d+)\\s+\\d+\\s+R")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex FontEntry()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__FontEntry_26.Instance;
 	}
 
-	[GeneratedRegex("begincodespacerange\\s*<([0-9A-Fa-f]+)>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex CodespaceRange()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__CodespaceRange_27.Instance;
 	}
 
-	[GeneratedRegex("beginbfchar(.*?)endbfchar", RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BfCharBlock()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__BfCharBlock_28.Instance;
 	}
 
-	[GeneratedRegex("beginbfrange(.*?)endbfrange", RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BfRangeBlock()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__BfRangeBlock_29.Instance;
 	}
 
-	[GeneratedRegex("<([0-9A-Fa-f]+)>\\s*<([0-9A-Fa-f]*)>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex HexPair()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__HexPair_30.Instance;
 	}
 
-	[GeneratedRegex("<([0-9A-Fa-f]+)>\\s*<([0-9A-Fa-f]+)>\\s*(?:<([0-9A-Fa-f]*)>|\\[([^\\]]*)\\])")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BfRangeLine()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__BfRangeLine_31.Instance;
 	}
 
-	[GeneratedRegex("<([0-9A-Fa-f]*)>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex HexString()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__HexString_32.Instance;
 	}
 
-	[GeneratedRegex("[ \\t]{2,}")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex MultipleSpaces()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__MultipleSpaces_33.Instance;
 	}
 
-	[GeneratedRegex("\\n{3,}")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BlankLines()
 	{

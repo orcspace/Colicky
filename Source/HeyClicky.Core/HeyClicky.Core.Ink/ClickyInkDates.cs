@@ -27,7 +27,6 @@ public static class ClickyInkDates
 
 	public static Func<DateTimeOffset> ReferenceNow { get; set; } = () => DateTimeOffset.Now;
 
-	[GeneratedRegex("(\\d)\\s*([ap])\\.?m\\.?\\b", RegexOptions.IgnoreCase)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex MeridiemRegex()
 	{

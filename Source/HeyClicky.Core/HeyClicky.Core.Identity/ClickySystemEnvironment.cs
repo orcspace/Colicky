@@ -39,7 +39,7 @@ public static class ClickySystemEnvironment
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern int GetSystemMetrics(int index);
 
 	public static int DisplayCount()

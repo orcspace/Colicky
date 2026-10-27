@@ -14,5 +14,5 @@ public sealed record ClickyJobRun
 
 	public ClickyJobOutcome Outcome { get; init; }
 
-	public string? Summary { get; init; }
+	public string? Summary { get; set; }
 }

@@ -11,6 +11,7 @@ internal static class J
 
 	public static bool Has(this JsonElement e, string name, out JsonElement value)
 	{
+		value = default;
 		bool flag = e.ValueKind == JsonValueKind.Object && e.TryGetProperty(name, out value);
 		if (flag)
 		{

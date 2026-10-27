@@ -17,19 +17,19 @@ public sealed record ClickyWorkPiece
 
 	public string Ask { get; init; } = "";
 
-	public string Title { get; init; } = "";
+	public string Title { get; set; } = "";
 
-	public string Summary { get; init; } = "";
+	public string Summary { get; set; } = "";
 
-	public string Reply { get; init; } = "";
+	public string Reply { get; set; } = "";
 
-	public IReadOnlyList<string> ArtifactPaths { get; init; } = Array.Empty<string>();
+	public IReadOnlyList<string> ArtifactPaths { get; set; } = Array.Empty<string>();
 
-	public DateTimeOffset FinishedAt { get; init; }
+	public DateTimeOffset FinishedAt { get; set; }
 
 	public bool Failed { get; init; }
 
-	public bool IsRoutineRun { get; init; }
+	public bool IsRoutineRun { get; set; }
 
 	public string DisplayTitle
 	{

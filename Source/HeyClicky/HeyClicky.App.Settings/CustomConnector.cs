@@ -12,7 +12,7 @@ public sealed record CustomConnector(string Id, string Name, string Kind, string
 
 	public IReadOnlyList<string> HeaderNames { get; init; } = Array.Empty<string>();
 
-	public bool TokenFromSignIn { get; init; }
+	public bool TokenFromSignIn { get; set; }
 
 	public string? DerivedCapabilityDescription { get; init; }
 

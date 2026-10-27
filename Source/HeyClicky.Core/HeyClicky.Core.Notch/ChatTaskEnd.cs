@@ -24,15 +24,15 @@ public sealed record ChatTaskEnd
 
 	public string? FinalResponseMarkdown { get; init; }
 
-	public IReadOnlyList<string> CompletedAssistantMessages { get; init; } = Array.Empty<string>();
+	public IReadOnlyList<string> CompletedAssistantMessages { get; set; } = Array.Empty<string>();
 
-	public IReadOnlyList<string> UserFacingArtifactPaths { get; init; } = Array.Empty<string>();
+	public IReadOnlyList<string> UserFacingArtifactPaths { get; set; } = Array.Empty<string>();
 
-	public JsonObject? FinalAnswer { get; init; }
+	public JsonObject? FinalAnswer { get; set; }
 
-	public IReadOnlyList<string> SuggestedNextActions { get; init; } = Array.Empty<string>();
+	public IReadOnlyList<string> SuggestedNextActions { get; set; } = Array.Empty<string>();
 
-	public bool IsScheduledRoutineRun { get; init; }
+	public bool IsScheduledRoutineRun { get; set; }
 
-	public string? CompletedThreadName { get; init; }
+	public string? CompletedThreadName { get; set; }
 }

@@ -451,49 +451,42 @@ public static class Markdown
 		}
 	}
 
-	[GeneratedRegex("^(#{1,6})\\s+(.*)$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex HeadingRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__HeadingRegex_1.Instance;
 	}
 
-	[GeneratedRegex("^\\s*([-*_])(\\s*\\1){2,}\\s*$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex RuleRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__RuleRegex_2.Instance;
 	}
 
-	[GeneratedRegex("^\\s*[-*]\\s+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BulletRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__BulletRegex_3.Instance;
 	}
 
-	[GeneratedRegex("^\\s*\\d+\\.\\s+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex NumberRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__NumberRegex_4.Instance;
 	}
 
-	[GeneratedRegex("!\\[([^\\]]*)\\]\\(([^)]+)\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex ImageRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__ImageRegex_5.Instance;
 	}
 
-	[GeneratedRegex("^\\|?\\s*:?-{2,}:?\\s*(\\|\\s*:?-{2,}:?\\s*)*\\|?$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex TableRuleRegex()
 	{
 		return _003CRegexGenerator_g_003EF28A2296322AA8157E781741CAF5411F71FD48521B596B17CD636AF2E2B4F490D__TableRuleRegex_6.Instance;
 	}
 
-	[GeneratedRegex("\\*\\*(?<bold>[^*]+)\\*\\*|__(?<bold>[^_]+)__|\\*(?<ital>[^*\\s][^*]*)\\*|`(?<code>[^`]+)`|\\[(?<ltext>[^\\]]+)\\]\\((?<lurl>[^)\\s]+)\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex InlineRegex()
 	{

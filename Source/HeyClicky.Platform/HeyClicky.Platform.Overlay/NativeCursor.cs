@@ -21,7 +21,6 @@ internal static class NativeCursor
 
 	public const uint WM_MOUSELEAVE = 675u;
 
-	[LibraryImport("user32.dll", SetLastError = true)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -43,7 +42,7 @@ internal static class NativeCursor
 	}
 
 	[DllImport("user32.dll", EntryPoint = "LoadCursorW", ExactSpelling = true)]
-	[LibraryImport("user32.dll", EntryPoint = "LoadCursorW")]
+
 	private static extern nint LoadCursor(nint instance, nint cursorName);
 
 	public static bool TrackLeave(HWND window)

@@ -33,9 +33,6 @@
     <Reference Include="Microsoft.InteractiveExperiences.Projection">
       <HintPath>../../.cache/original/lib/app/Microsoft.InteractiveExperiences.Projection.dll</HintPath>
     </Reference>
-    <Reference Include="HeyClicky.Drawing3D">
-      <HintPath>../../.cache/original/lib/app/HeyClicky.Drawing3D.dll</HintPath>
-    </Reference>
     <Reference Include="Vortice.DXGI">
       <HintPath>../../.cache/original/lib/app/Vortice.DXGI.dll</HintPath>
     </Reference>
@@ -61,5 +58,6 @@
       <HintPath>../../.cache/original/lib/app/Microsoft.WinUI.dll</HintPath>
     </Reference>
     <ProjectReference Include="../HeyClicky.Contracts/HeyClicky.Contracts.csproj" />
+    <ProjectReference Include="../HeyClicky.Drawing3D/HeyClicky.Drawing3D.csproj" />
   </ItemGroup>
 </Project>

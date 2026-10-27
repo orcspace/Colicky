@@ -5,13 +5,13 @@ namespace HeyClicky.Drawing.Painter;
 
 internal sealed class PenStroke
 {
-	public required Vector2[] Points;
+	public Vector2[] Points;
 
-	public required double BeginTime;
+	public double BeginTime;
 
-	public required double Duration;
+	public double Duration;
 
-	public required Vector4 Timing;
+	public Vector4 Timing;
 
 	public Func<Vector2[]>? LateResolver;
 

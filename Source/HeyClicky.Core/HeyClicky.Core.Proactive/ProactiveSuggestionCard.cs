@@ -16,15 +16,15 @@ public sealed record ProactiveSuggestionCard
 
 	public int? ServerSuggestionId { get; init; }
 
-	public string? ClickySlug { get; init; }
+	public string? ClickySlug { get; set; }
 
-	public ProactiveNewClicky? NewClicky { get; init; }
+	public ProactiveNewClicky? NewClicky { get; set; }
 
-	public ProactiveRoutine? Routine { get; init; }
+	public ProactiveRoutine? Routine { get; set; }
 
-	public string? IntegrationName { get; init; }
+	public string? IntegrationName { get; set; }
 
-	public DateTimeOffset CreatedAt { get; init; } = DateTimeOffset.Now;
+	public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
 
 	public DateTimeOffset? ViewedAt { get; init; }
 

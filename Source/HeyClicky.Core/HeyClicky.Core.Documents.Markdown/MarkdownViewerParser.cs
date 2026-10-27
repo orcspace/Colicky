@@ -392,7 +392,6 @@ public static class MarkdownViewerParser
 		return new MarkdownViewerListItem(Math.Min(num2 / 2, 5), ordinalLabel, checkboxState, TrimWhitespace(text3));
 	}
 
-	[GeneratedRegex("^!\\[([^\\]]*)\\]\\(\\s*(\\S+?)(?:\\s+\"[^\"]*\")?\\s*\\)$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex StandaloneImageRegex()
 	{
@@ -426,7 +425,6 @@ public static class MarkdownViewerParser
 		return new string[5] { "note", "tip", "important", "warning", "caution" }.Any((string word) => head.StartsWith("**" + word + "** ·", StringComparison.Ordinal));
 	}
 
-	[GeneratedRegex("!\\[([^\\]]*)\\]\\(")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex InlineImageRegex()
 	{

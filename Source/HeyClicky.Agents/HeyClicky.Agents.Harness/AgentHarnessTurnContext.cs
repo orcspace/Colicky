@@ -19,7 +19,7 @@ public sealed record AgentHarnessTurnContext
 
 	public bool IsKeptThing { get; init; }
 
-	public bool WritesNoteWithTools { get; init; }
+	public bool WritesNoteWithTools { get; set; }
 
-	public bool UsesPlanTool { get; init; }
+	public bool UsesPlanTool { get; set; }
 }

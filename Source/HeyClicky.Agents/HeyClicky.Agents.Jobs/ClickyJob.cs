@@ -47,7 +47,7 @@ public sealed record ClickyJob
 
 	public bool? SkipsChrome { get; init; }
 
-	public IReadOnlyList<ClickyJobRun>? Runs { get; init; }
+	public IReadOnlyList<ClickyJobRun>? Runs { get; set; }
 
 	public ClickyJobUserStep? WaitingStep { get; init; }
 

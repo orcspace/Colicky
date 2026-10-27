@@ -27,18 +27,18 @@ public sealed class ClickyTourJob
 		try
 		{
 			o = JsonNode.Parse(payload) as JsonObject;
-			string? Str(string key)
-			{
-				if (!(o[key] is JsonValue jsonValue) || !jsonValue.TryGetValue<string>(out string value2))
-				{
-					return null;
-				}
-				return value2;
-			}
 		}
 		catch (JsonException)
 		{
 			return null;
+		}
+		string? Str(string key)
+		{
+			if (!(o[key] is JsonValue jsonValue) || !jsonValue.TryGetValue<string>(out string value2))
+			{
+				return null;
+			}
+			return value2;
 		}
 		if (o == null)
 		{

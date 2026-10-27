@@ -400,7 +400,6 @@ internal sealed class ClickyStore
 		return "clicky";
 	}
 
-	[GeneratedRegex("[^a-z0-9]+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex NonSlug()
 	{

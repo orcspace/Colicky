@@ -18,10 +18,9 @@ public static class GpuScheduling
 	}
 
 	[DllImport("gdi32.dll", ExactSpelling = true)]
-	[LibraryImport("gdi32.dll")]
+
 	private static extern int D3DKMTSetProcessSchedulingPriorityClass(nint process, int priority);
 
-	[LibraryImport("gdi32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static int D3DKMTGetProcessSchedulingPriorityClass(nint process, out int priority)

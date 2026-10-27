@@ -12,63 +12,63 @@ namespace HeyClicky.Core.Voice;
 
 public sealed class CompanionSessionOptions
 {
-	public SynchronizationContext? UiContext { get; init; }
+	public SynchronizationContext? UiContext { get; set; }
 
-	public IDesktopActions DesktopActions { get; init; } = new WindowsDesktopActions();
+	public IDesktopActions DesktopActions { get; set; } = new WindowsDesktopActions();
 
-	public Func<BrainToolCall, CompanionToolContext, CancellationToken, Task<string>>? ToolCallHandler { get; init; }
+	public Func<BrainToolCall, CompanionToolContext, CancellationToken, Task<string>>? ToolCallHandler { get; set; }
 
-	public Func<BrainUserContext>? UserContext { get; init; }
+	public Func<BrainUserContext>? UserContext { get; set; }
 
-	public Func<string?>? RosterNote { get; init; }
+	public Func<string?>? RosterNote { get; set; }
 
-	public Func<string?>? PlanNote { get; init; }
+	public Func<string?>? PlanNote { get; set; }
 
-	public IPageReader? PageReader { get; init; }
+	public IPageReader? PageReader { get; set; }
 
-	public Func<string, bool>? DocumentAccessDenied { get; init; }
+	public Func<string, bool>? DocumentAccessDenied { get; set; }
 
-	public Func<string?>? OutputSilenceKind { get; init; }
+	public Func<string?>? OutputSilenceKind { get; set; }
 
-	public Func<bool> IsOnboardingTutorialRestrictingNormalUse { get; init; } = () => false;
+	public Func<bool> IsOnboardingTutorialRestrictingNormalUse { get; set; } = () => false;
 
-	public Func<string> UsageContext { get; init; } = () => "companion";
+	public Func<string> UsageContext { get; set; } = () => "companion";
 
-	public TimeSpan MinimumHold { get; init; } = TimeSpan.FromSeconds(0.5);
+	public TimeSpan MinimumHold { get; set; } = TimeSpan.FromSeconds(0.5);
 
-	public Func<string?>? LiveStateNote { get; init; }
+	public Func<string?>? LiveStateNote { get; set; }
 
-	public Func<string?>? EdgeDockFocusNote { get; init; }
+	public Func<string?>? EdgeDockFocusNote { get; set; }
 
-	public Func<string?>? TurnFlow { get; init; }
+	public Func<string?>? TurnFlow { get; set; }
 
-	public Func<RectD, DisplayInfo, CancellationToken, Task<RectD?>>? SnapTargetToControl { get; init; }
+	public Func<RectD, DisplayInfo, CancellationToken, Task<RectD?>>? SnapTargetToControl { get; set; }
 
-	public IPointerInput? PointerInput { get; init; }
+	public IPointerInput? PointerInput { get; set; }
 
-	public Func<string, bool>? RefuseTurnOverMessageCap { get; init; }
+	public Func<string, bool>? RefuseTurnOverMessageCap { get; set; }
 
-	public Action<bool>? MessageCounted { get; init; }
+	public Action<bool>? MessageCounted { get; set; }
 
-	public Func<bool>? KeepMouthWarm { get; init; }
+	public Func<bool>? KeepMouthWarm { get; set; }
 
-	public Func<IReadOnlyList<HighlightStroke>, CancellationToken, Task<string?>>? HighlightText { get; init; }
+	public Func<IReadOnlyList<HighlightStroke>, CancellationToken, Task<string?>>? HighlightText { get; set; }
 
-	public Func<bool>? MutedSpeakerReplyExempt { get; init; }
+	public Func<bool>? MutedSpeakerReplyExempt { get; set; }
 
-	public Func<JsonObject?>? TakeFlowBrief { get; init; }
+	public Func<JsonObject?>? TakeFlowBrief { get; set; }
 
-	public Func<string?>? TakePillPlanNote { get; init; }
+	public Func<string?>? TakePillPlanNote { get; set; }
 
-	public Func<bool, string?>? BrowserStateNote { get; init; }
+	public Func<bool, string?>? BrowserStateNote { get; set; }
 
-	public Func<bool>? IsOnboardingTurn { get; init; }
+	public Func<bool>? IsOnboardingTurn { get; set; }
 
-	public Func<double>? CaptureSettleSeconds { get; init; }
+	public Func<double>? CaptureSettleSeconds { get; set; }
 
-	public Func<bool>? RendersTextInNotchChat { get; init; }
+	public Func<bool>? RendersTextInNotchChat { get; set; }
 
-	public Func<bool>? StepNotchChatAsideForDrawing { get; init; }
+	public Func<bool>? StepNotchChatAsideForDrawing { get; set; }
 
 	public IClickyDriveTurns? Drive { get; set; }
 }

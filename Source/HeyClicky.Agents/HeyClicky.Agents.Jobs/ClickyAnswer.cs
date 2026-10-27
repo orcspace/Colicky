@@ -26,7 +26,7 @@ public sealed record ClickyAnswer
 		public string? Of { get; init; }
 
 		[JsonPropertyName("better")]
-		public string? Better { get; init; }
+		public string? Better { get; set; }
 	}
 
 	public sealed record Row

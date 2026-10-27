@@ -76,7 +76,6 @@ public static class IntegrationLogos
 
 	private static string CacheDirectory => AppPaths.Combine("logo-cache");
 
-	[GeneratedRegex("[^a-z0-9]+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex NonAlnum()
 	{

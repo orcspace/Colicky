@@ -72,7 +72,6 @@ internal static class SvgValues
 		return new Vector2(list[0], list[1]);
 	}
 
-	[GeneratedRegex("(matrix|translate|scale|rotate|skewX|skewY)\\s*\\(([^)]*)\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex TransformPattern()
 	{

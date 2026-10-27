@@ -34,19 +34,19 @@ public sealed record ArcCardContent
 
 	public string? WorkspacePath { get; init; }
 
-	public bool TaskIsRunning { get; init; }
+	public bool TaskIsRunning { get; set; }
 
-	public CardFooterRequest? Request { get; init; }
+	public CardFooterRequest? Request { get; set; }
 
-	public CardReadyOutput? ReadyOutput { get; init; }
+	public CardReadyOutput? ReadyOutput { get; set; }
 
-	public ClickyLiveLine? LiveLine { get; init; }
+	public ClickyLiveLine? LiveLine { get; set; }
 
-	public ClickyAnswer? Answer { get; init; }
+	public ClickyAnswer? Answer { get; set; }
 
-	public bool IsFinalizing { get; init; }
+	public bool IsFinalizing { get; set; }
 
-	public string? NotePath { get; init; }
+	public string? NotePath { get; set; }
 
 	public bool IsWorking => ArcCardStates.IsWorking(State);
 

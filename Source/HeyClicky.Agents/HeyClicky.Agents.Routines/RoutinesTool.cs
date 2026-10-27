@@ -51,22 +51,22 @@ public sealed class RoutinesTool(RoutineScheduler routines, ClickyJobStore jobs,
 		try
 		{
 			arguments = (JsonNode.Parse(argumentsJson) as JsonObject) ?? new JsonObject();
-			string? Text(string key)
-			{
-				if (arguments[key] is JsonValue jsonValue2 && jsonValue2.TryGetValue<string>(out string value3))
-				{
-					string text7 = value3.Trim();
-					if (text7 != null && text7.Length > 0)
-					{
-						return text7;
-					}
-				}
-				return null;
-			}
 		}
 		catch (JsonException)
 		{
 			arguments = new JsonObject();
+		}
+		string? Text(string key)
+		{
+			if (arguments[key] is JsonValue jsonValue2 && jsonValue2.TryGetValue<string>(out string value3))
+			{
+				string text7 = value3.Trim();
+				if (text7 != null && text7.Length > 0)
+				{
+					return text7;
+				}
+			}
+			return null;
 		}
 		int? num;
 		if (arguments["every_minutes"] is JsonValue jsonValue)

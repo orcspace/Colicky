@@ -300,7 +300,6 @@ public sealed class WorkerTools
 		return null;
 	}
 
-	[GeneratedRegex("^[A-Za-z0-9]{22}$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex SpotifyId()
 	{

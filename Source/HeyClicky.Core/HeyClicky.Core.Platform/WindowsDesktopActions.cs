@@ -252,10 +252,9 @@ public sealed class WindowsDesktopActions : IDesktopActions
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint GetForegroundWindow();
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static uint GetWindowThreadProcessId(nint window, out uint processId)
@@ -271,7 +270,6 @@ public sealed class WindowsDesktopActions : IDesktopActions
 		unsafe static extern uint __PInvoke(nint __window_native, uint* __processId_native);
 	}
 
-	[LibraryImport("user32.dll", SetLastError = true)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -287,7 +285,6 @@ public sealed class WindowsDesktopActions : IDesktopActions
 		static extern int __PInvoke(nint __owner_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -298,7 +295,6 @@ public sealed class WindowsDesktopActions : IDesktopActions
 		static extern int __PInvoke();
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -310,14 +306,13 @@ public sealed class WindowsDesktopActions : IDesktopActions
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint SetClipboardData(uint format, nint memory);
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint GetClipboardData(uint format);
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -328,7 +323,6 @@ public sealed class WindowsDesktopActions : IDesktopActions
 		static extern int __PInvoke(uint __format_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static uint SendInput(uint count, ref Input input, int size)
@@ -344,14 +338,13 @@ public sealed class WindowsDesktopActions : IDesktopActions
 	}
 
 	[DllImport("kernel32.dll", ExactSpelling = true)]
-	[LibraryImport("kernel32.dll")]
+
 	private static extern nint GlobalAlloc(uint flags, nuint bytes);
 
 	[DllImport("kernel32.dll", ExactSpelling = true)]
-	[LibraryImport("kernel32.dll")]
+
 	private static extern nint GlobalLock(nint memory);
 
-	[LibraryImport("kernel32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -363,6 +356,6 @@ public sealed class WindowsDesktopActions : IDesktopActions
 	}
 
 	[DllImport("kernel32.dll", ExactSpelling = true)]
-	[LibraryImport("kernel32.dll")]
+
 	private static extern nint GlobalFree(nint memory);
 }

@@ -141,6 +141,5 @@ public sealed class AppSettings
 		OneBrainKeepsScreensInHistory = true;
 		ProactiveAgentSuggestionsEnabled = true;
 		ProactiveDebugCadence = 1;
-		base._002Ector();
 	}
 }

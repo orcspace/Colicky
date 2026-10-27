@@ -1534,7 +1534,6 @@ public static class ClickyInkParser
 		}
 	}
 
-	[GeneratedRegex("\\s*\\{\\s*(new|needs|done|pick|now|gone|out|ruled-out|ruledout|no|skip)\\s*\\}", RegexOptions.IgnoreCase)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex MarkRegex()
 	{
@@ -1568,14 +1567,12 @@ public static class ClickyInkParser
 		return text2;
 	}
 
-	[GeneratedRegex("\\*\\*(.+?)\\*\\*")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BoldRegex()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__BoldRegex_39.Instance;
 	}
 
-	[GeneratedRegex("==(.+?)==")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex HighlightRegex()
 	{
@@ -1592,14 +1589,12 @@ public static class ClickyInkParser
 		return HighlightRegex().Replace(input, $"{'\ue003'}$1{'\ue004'}");
 	}
 
-	[GeneratedRegex("\\[([^\\]]+)\\]\\((https?://[^)\\s]+)\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex LinkRegex()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__LinkRegex_41.Instance;
 	}
 
-	[GeneratedRegex("(\\[[^\\]]+\\]\\(https?://[^)\\s]+\\))[ \\t]*(?=\\[[^\\]]+\\]\\(https?://)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex AdjacentLinksRegex()
 	{
@@ -1660,7 +1655,6 @@ public static class ClickyInkParser
 		return Builder.TimedLine(line);
 	}
 
-	[GeneratedRegex("^((?:\\d{1,2}(?::\\d{2})?\\s*(?:am|pm|AM|PM)?)(?:\\s*[–-]\\s*\\d{1,2}(?::\\d{2})?\\s*(?:am|pm|AM|PM)?)?|(?:Morning|Afternoon|Evening|Night|Lunch|Dinner|Breakfast)(?=\\s*[:·—-]))\\s*[:·—-]?\\s+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex TimedLineRegex()
 	{

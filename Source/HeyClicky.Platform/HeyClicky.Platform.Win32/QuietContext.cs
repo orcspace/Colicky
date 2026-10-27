@@ -56,7 +56,6 @@ public static class QuietContext
 
 	public static readonly bool IgnoredForTests = Environment.GetEnvironmentVariable("HEYCLICKY_IGNORE_QUIET_CONTEXT") == "1";
 
-	[LibraryImport("shell32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static int SHQueryUserNotificationState(out int state)
@@ -96,18 +95,17 @@ public static class QuietContext
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint GetForegroundWindow();
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint GetShellWindow();
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint GetDesktopWindow();
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -125,10 +123,9 @@ public static class QuietContext
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	private static extern nint MonitorFromWindow(nint hwnd, uint flags);
 
-	[LibraryImport("user32.dll", EntryPoint = "GetMonitorInfoW")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -144,7 +141,6 @@ public static class QuietContext
 		unsafe static extern int __PInvoke(nint __monitor_native, MONITORINFO* __info_native);
 	}
 
-	[LibraryImport("user32.dll", EntryPoint = "GetClassNameW", StringMarshalling = StringMarshalling.Utf16)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static int GetClassName(nint hwnd, [Out] char[] name, int max)
@@ -160,7 +156,6 @@ public static class QuietContext
 		unsafe static extern int __PInvoke(nint __hwnd_native, char* __name_native, int __max_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static uint GetWindowThreadProcessId(nint hwnd, out uint processId)
@@ -176,7 +171,6 @@ public static class QuietContext
 		unsafe static extern uint __PInvoke(nint __hwnd_native, uint* __processId_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -267,7 +261,6 @@ public static class QuietContext
 		return false;
 	}
 
-	[LibraryImport("ntdll.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	private unsafe static int NtQueryWnfStateData(ulong* stateName, nint typeId, nint explicitScope, out uint changeStamp, void* buffer, ref uint bufferSize)
@@ -373,7 +366,6 @@ public static class QuietContext
 		return false;
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]

@@ -59,7 +59,7 @@ public sealed class OneBrainStats
 
 		public double Cost { get; init; }
 
-		public double? IdleMinutesBefore { get; init; }
+		public double? IdleMinutesBefore { get; set; }
 	}
 
 	public sealed record Event(DateTimeOffset At, string Text);

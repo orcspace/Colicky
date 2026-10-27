@@ -295,7 +295,7 @@ public sealed class InkTextView : Panel, IInkBaseline
 					{
 						int index = list.Count - 1;
 						GlyphBox value = list[list.Count - 1];
-						value.Right = Math.Max(list[list.Count - 1].Right, item.Right);
+						value = value with { Right = Math.Max(list[list.Count - 1].Right, item.Right) };
 						list[index] = value;
 						continue;
 					}

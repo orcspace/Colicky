@@ -15,7 +15,7 @@ namespace HeyClicky.App.Ink;
 
 public sealed class ClickyInkSheetView : Panel, IClickyInkClocked
 {
-	private sealed record Row(string Id, ClickyInkSheetRowKind Kind, ClickyInkSheetRowInfo Info, bool HasNowLine = false, double? PageSettledAt = null);
+	private sealed record Row(string Id, ClickyInkSheetRowKind Kind, ClickyInkSheetRowInfo Info, bool HasNowLine = false, double? PageSettledAt = null) { public ClickyInkSheetRowInfo Info { get; set; } = Info; }
 
 	private readonly ClickyInkLiveNote note;
 

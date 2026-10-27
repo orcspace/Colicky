@@ -10,6 +10,8 @@ public abstract record ClickyInkSheetRowInfo
 
 	public sealed record Row(IReadOnlyList<string> PlaceIDs, IReadOnlyDictionary<string, double> ItemFractions, IReadOnlyList<string> CollapsedAbove, IReadOnlyList<string> CollapsedBelow) : ClickyInkSheetRowInfo
 	{
+		public IReadOnlyList<string> CollapsedAbove { get; set; } = CollapsedAbove;
+		public IReadOnlyList<string> CollapsedBelow { get; set; } = CollapsedBelow;
 		public Row(IReadOnlyList<string> placeIDs, IReadOnlyDictionary<string, double> itemFractions)
 			: this(placeIDs, itemFractions, Array.Empty<string>(), Array.Empty<string>())
 		{

@@ -7,7 +7,7 @@ namespace HeyClicky.Platform.Input;
 
 internal static class NativeHooks
 {
-	[LibraryImport("user32.dll", SetLastError = true)]
+
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	public unsafe static nint SetWindowsHookExW(int idHook, delegate* unmanaged<int, nuint, nint, nint> lpfn, nint hmod, uint dwThreadId)
@@ -20,7 +20,6 @@ internal static class NativeHooks
 		unsafe static extern nint __PInvoke(int __idHook_native, delegate* unmanaged<int, nuint, nint, nint> __lpfn_native, nint __hmod_native, uint __dwThreadId_native);
 	}
 
-	[LibraryImport("user32.dll", SetLastError = true)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -37,10 +36,9 @@ internal static class NativeHooks
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	public static extern nint CallNextHookEx(nint hhk, int nCode, nuint wParam, nint lParam);
 
-	[LibraryImport("kernel32.dll", StringMarshalling = StringMarshalling.Utf16)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	public unsafe static nint GetModuleHandleW(string? lpModuleName)
@@ -56,7 +54,6 @@ internal static class NativeHooks
 		unsafe static extern nint __PInvoke(ushort* __lpModuleName_native);
 	}
 
-	[LibraryImport("user32.dll", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	public unsafe static nint CreateWindowExW(uint exStyle, string className, string windowName, uint style, int x, int y, int width, int height, nint parent, nint menu, nint instance, nint param)
@@ -80,7 +77,6 @@ internal static class NativeHooks
 		unsafe static extern nint __PInvoke(uint __exStyle_native, ushort* __className_native, ushort* __windowName_native, uint __style_native, int __x_native, int __y_native, int __width_native, int __height_native, nint __parent_native, nint __menu_native, nint __instance_native, nint __param_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -91,7 +87,6 @@ internal static class NativeHooks
 		static extern int __PInvoke(nint __hwnd_native);
 	}
 
-	[LibraryImport("user32.dll", SetLastError = true)]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -108,10 +103,9 @@ internal static class NativeHooks
 	}
 
 	[DllImport("user32.dll", ExactSpelling = true)]
-	[LibraryImport("user32.dll")]
+
 	public static extern nuint SetTimer(nint hwnd, nuint id, uint milliseconds, nint callback);
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	[return: MarshalAs(UnmanagedType.Bool)]
@@ -122,7 +116,6 @@ internal static class NativeHooks
 		static extern int __PInvoke(nint __hwnd_native, nuint __id_native);
 	}
 
-	[LibraryImport("user32.dll")]
 	[GeneratedCode("Microsoft.Interop.LibraryImportGenerator", "9.0.15.404")]
 	[SkipLocalsInit]
 	public unsafe static uint GetRawInputData(nint rawInput, uint command, void* data, ref uint size, uint headerSize)

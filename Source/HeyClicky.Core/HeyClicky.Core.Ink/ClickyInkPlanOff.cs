@@ -9,14 +9,13 @@ namespace HeyClicky.Core.Ink;
 
 public static class ClickyInkPlanOff
 {
-	[GeneratedRegex("\\s*\\{now\\}")]
+
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex NowMarkRegex()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__NowMarkRegex_45.Instance;
 	}
 
-	[GeneratedRegex("\\{[^}]*big=")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BigRegex()
 	{

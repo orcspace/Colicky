@@ -153,21 +153,18 @@ public static class ProgramText
 		return text;
 	}
 
-	[GeneratedRegex("\\s*\\(\\[[^\\]\\n]{1,80}\\]\\(https?://[^)\\s\"]+\\)\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex CitationPattern()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__CitationPattern_0.Instance;
 	}
 
-	[GeneratedRegex("\\[([^\\]\\n]{1,80})\\]\\(https?://[^)\\s\"]+\\)")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex MarkdownLinkPattern()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__MarkdownLinkPattern_1.Instance;
 	}
 
-	[GeneratedRegex("\\s*https?://[^\\s\"'),]+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex BareUrlPattern()
 	{

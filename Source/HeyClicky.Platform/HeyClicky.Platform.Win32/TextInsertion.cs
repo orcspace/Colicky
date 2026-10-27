@@ -193,14 +193,12 @@ public static class TextInsertion
 		return LeadingCommaPattern().Replace(input, "");
 	}
 
-	[GeneratedRegex("[ \\t]*—[ \\t]*")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex EmDashPattern()
 	{
 		return _003CRegexGenerator_g_003EF2811876830D1BE444FDA9BB3355F564652CBC14E424CC02AD59B326B9D5499F8__EmDashPattern_0.Instance;
 	}
 
-	[GeneratedRegex("(?m)^, ")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex LeadingCommaPattern()
 	{

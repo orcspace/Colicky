@@ -180,7 +180,6 @@ public static class SpreadsheetNumberFormat
 		return value.ToString("G10", CultureInfo.InvariantCulture).Replace("E", "e");
 	}
 
-	[GeneratedRegex("\\.?0+E")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex TrailingZerosBeforeExponent()
 	{

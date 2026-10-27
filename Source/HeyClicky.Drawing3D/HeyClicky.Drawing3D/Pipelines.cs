@@ -260,11 +260,11 @@ internal sealed class Pipelines : IDisposable
 		DepthWriting = d.CreateDepthStencilState(new DepthStencilDescription(depthEnable: true, DepthWriteMask.All));
 		DepthReading = d.CreateDepthStencilState(new DepthStencilDescription(depthEnable: true, DepthWriteMask.Zero));
 		DepthOff = d.CreateDepthStencilState(new DepthStencilDescription(depthEnable: false, DepthWriteMask.Zero, ComparisonFunction.Always));
-		BlendAlpha = Blend(Blend.SourceAlpha, Blend.InverseSourceAlpha, Blend.One, Blend.InverseSourceAlpha);
-		BlendNone = Blend(Blend.One, Blend.Zero, Blend.One, Blend.Zero, enabled: false);
-		BlendPremultiplied = Blend(Blend.One, Blend.InverseSourceAlpha, Blend.One, Blend.InverseSourceAlpha);
-		BlendInkAndSeam = Blend(Blend.One, Blend.Source1Color, Blend.One, Blend.Source1Alpha);
-		BlendUnder = Blend(Blend.InverseDestinationAlpha, Blend.One, Blend.InverseDestinationAlpha, Blend.One);
+		BlendAlpha = Blend(Vortice.Direct3D11.Blend.SourceAlpha, Vortice.Direct3D11.Blend.InverseSourceAlpha, Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.InverseSourceAlpha);
+		BlendNone = Blend(Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.Zero, Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.Zero, enabled: false);
+		BlendPremultiplied = Blend(Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.InverseSourceAlpha, Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.InverseSourceAlpha);
+		BlendInkAndSeam = Blend(Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.Source1Color, Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.Source1Alpha);
+		BlendUnder = Blend(Vortice.Direct3D11.Blend.InverseDestinationAlpha, Vortice.Direct3D11.Blend.One, Vortice.Direct3D11.Blend.InverseDestinationAlpha, Vortice.Direct3D11.Blend.One);
 		EnvironmentSampler = d.CreateSamplerState(new SamplerDescription(Filter.MinMagMipLinear, TextureAddressMode.Clamp, TextureAddressMode.Clamp, TextureAddressMode.Clamp));
 		ShadowSampler = d.CreateSamplerState(new SamplerDescription(Filter.ComparisonMinMagLinearMipPoint, TextureAddressMode.Clamp, TextureAddressMode.Clamp, TextureAddressMode.Clamp, 0f, 1u, ComparisonFunction.LessEqual));
 		PointClamp = d.CreateSamplerState(new SamplerDescription(Filter.MinMagMipPoint, TextureAddressMode.Clamp, TextureAddressMode.Clamp, TextureAddressMode.Clamp));

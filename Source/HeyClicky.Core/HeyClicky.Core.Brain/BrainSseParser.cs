@@ -61,7 +61,7 @@ public sealed class BrainSseParser : IDisposable
 
 	private void DispatchLine(ReadOnlySpan<byte> line, IBrainStreamSink sink)
 	{
-		scoped ref ReadOnlySpan<byte> reference;
+		scoped ref ReadOnlySpan<byte> reference = ref line;
 		if (!line.IsEmpty)
 		{
 			if (line[line.Length - 1] == 13)

@@ -3041,10 +3041,10 @@ public sealed class CompanionSession : ICompanionSession, IAsyncDisposable
 			writer.WriteBoolean("screenless", value: true);
 		}
 		writer.WriteBoolean("figure3d", value: true);
-		p.Flags with
+		(p.Flags with
 		{
 			Drive = ((p.Flags.Drive || p.OffersDrive) && !p.IsDrive)
-		}.Write(writer);
+		}).Write(writer);
 		if (p.IsDrive)
 		{
 			writer.WriteBoolean("takeover", value: true);

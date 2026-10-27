@@ -59,7 +59,7 @@ public abstract record RemoteTaskReportBlock
 					string text3 = text2;
 					element = text3.Substring(2, text3.Length - 2).Trim();
 				}
-				bullet.DetailLines = detailLines.Append(element).ToList();
+				bullet = bullet with { DetailLines = detailLines.Append(element).ToList() };
 				current = bullet;
 			}
 			else

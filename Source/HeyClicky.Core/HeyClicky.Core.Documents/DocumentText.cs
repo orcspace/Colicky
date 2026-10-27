@@ -447,98 +447,84 @@ public static class DocumentText
 		return WebUtility.HtmlDecode(text);
 	}
 
-	[GeneratedRegex("</w:p>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex WordParagraphEnd()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__WordParagraphEnd_4.Instance;
 	}
 
-	[GeneratedRegex("<w:tab\\s*/>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex WordTab()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__WordTab_5.Instance;
 	}
 
-	[GeneratedRegex("<w:(br|cr)\\b[^>]*/>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex WordBreak()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__WordBreak_6.Instance;
 	}
 
-	[GeneratedRegex("<w:t(?:\\s[^>]*)?>([^<]*)</w:t>|\\n|\\t")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex WordTextOrBreak()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__WordTextOrBreak_7.Instance;
 	}
 
-	[GeneratedRegex("</text:(p|h)>|<text:line-break\\s*/>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex OdtBlockEnd()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__OdtBlockEnd_8.Instance;
 	}
 
-	[GeneratedRegex("<text:tab\\s*/>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex OdtTab()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__OdtTab_9.Instance;
 	}
 
-	[GeneratedRegex("<[^>]+>", RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex AnyTag()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__AnyTag_10.Instance;
 	}
 
-	[GeneratedRegex("^ppt/slides/slide(\\d+)\\.xml$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex SlidePath()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__SlidePath_11.Instance;
 	}
 
-	[GeneratedRegex("<a:t>([^<]*)</a:t>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex DrawingTextRun()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__DrawingTextRun_12.Instance;
 	}
 
-	[GeneratedRegex("<si>.*?</si>", RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex SharedStringItem()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__SharedStringItem_13.Instance;
 	}
 
-	[GeneratedRegex("<t(?:\\s[^>]*)?>([^<]*)</t>")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex PlainTextRun()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__PlainTextRun_14.Instance;
 	}
 
-	[GeneratedRegex("<script.*?</script>", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex ScriptBlock()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__ScriptBlock_15.Instance;
 	}
 
-	[GeneratedRegex("<style.*?</style>", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex StyleBlock()
 	{
 		return _003CRegexGenerator_g_003EF3DE0466A33065F525404D2C03AE66B4D6E66F4B7C1D500F9A47B728120B2290F__StyleBlock_16.Instance;
 	}
 
-	[GeneratedRegex("\\s+")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex Whitespace()
 	{

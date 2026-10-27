@@ -386,7 +386,7 @@ public sealed class PhotoLoader
 		}
 		request.Content = new StringContent(JsonSerializer.Serialize(dictionary), Encoding.UTF8, "application/json");
 		using CancellationTokenSource timeout = new CancellationTokenSource(SearchTimeout);
-		int num;
+		int num = 0;
 		_ = num - 1;
 		_ = 1;
 		try

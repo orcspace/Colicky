@@ -1157,15 +1157,15 @@ public sealed class BrainSession : IDisposable
 			}
 			JsonObject jsonObject = (JsonObject)item.DeepClone();
 			JsonArray jsonArray2 = new JsonArray();
-			foreach (JsonNode item in jsonArray)
+			foreach (JsonNode screenshotItem in jsonArray)
 			{
-				if (toDrop > 0 && IsScreenshotBlock(item))
+				if (toDrop > 0 && IsScreenshotBlock(screenshotItem))
 				{
 					toDrop--;
 				}
 				else
 				{
-					jsonArray2.Add(item.DeepClone());
+					jsonArray2.Add(screenshotItem.DeepClone());
 				}
 			}
 			jsonObject["content"] = jsonArray2;

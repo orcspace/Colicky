@@ -9,7 +9,7 @@ public sealed record ClickyInkGroup
 {
 	public ClickyInkDocument.Kind Kind { get; init; }
 
-	public List<ClickyInkLiveNote.Block> Blocks { get; init; }
+	public List<ClickyInkLiveNote.Block> Blocks { get; set; }
 
 	public string Id
 	{

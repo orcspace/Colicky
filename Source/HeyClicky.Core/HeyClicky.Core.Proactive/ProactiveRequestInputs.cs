@@ -7,7 +7,7 @@ public sealed record ProactiveRequestInputs(IReadOnlyList<string> ConnectedInteg
 {
 	public bool ResearchOnlyForGoodMorning { get; init; }
 
-	public bool ReadsForMorningPaper { get; init; }
+	public bool ReadsForMorningPaper { get; set; }
 
-	public IReadOnlyList<(string Title, int EveryMinutes)> ExistingRoutines { get; init; } = Array.Empty<(string, int)>();
+	public IReadOnlyList<(string Title, int EveryMinutes)> ExistingRoutines { get; set; } = Array.Empty<(string, int)>();
 }

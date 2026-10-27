@@ -28,7 +28,6 @@ public sealed record ClickyInkDayLabel
 
 	private static readonly string[] DateWords;
 
-	[GeneratedRegex("\\d\\s*-\\s*\\d")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex DigitRange()
 	{

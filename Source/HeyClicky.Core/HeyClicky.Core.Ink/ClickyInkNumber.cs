@@ -22,7 +22,6 @@ public record struct ClickyInkNumber
 
 	public bool ShowsPlus { get; set; }
 
-	[GeneratedRegex("^([+-]?)([^\\d+\\-.]{0,4}?)([+-]?)(\\d[\\d,]*(?:\\.\\d+)?|\\.\\d+)(.*)$")]
 	[GeneratedCode("System.Text.RegularExpressions.Generator", "9.0.15.404")]
 	private static Regex NumberRegex()
 	{
