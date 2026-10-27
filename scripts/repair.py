@@ -38,7 +38,8 @@ for source in (ROOT / 'Source').rglob('*.cs'):
     if source.name == 'RemoteTaskReportBlock.cs':
         text = text.replace('bullet.DetailLines = detailLines.Append(element).ToList();', 'bullet = bullet with { DetailLines = detailLines.Append(element).ToList() };')
     if source.name == 'ClickyInkDashboardSplit.cs':
-        text = re.sub(r'(\b\w+)\.(Left|Right) = ([^;\n]+);', r'\1 = \1 with { \2 = \3 };', text)
+        text = text.replace('columns3.Right = list3;', 'columns2 = columns3 with { Right = list3 };').replace('columns4.Left = list4;', 'columns2 = columns4 with { Left = list4 };')
+        text = text.replace('columns3 = columns3 with { Right = list3 };', 'columns2 = columns3 with { Right = list3 };').replace('columns4 = columns4 with { Left = list4 };', 'columns2 = columns4 with { Left = list4 };')
     if source.name == 'AppSettings.cs':
         text = text.replace('\t\tbase._002Ector();\n', '')
     if source.name == 'BrainSseParser.cs':
