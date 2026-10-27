@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>HeyClicky</title>
+<link rel="stylesheet" href="ui.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <span class="brand"><span id="mark"></span><b>HeyClicky</b></span>
+    <span class="status" id="status"><i aria-hidden="true"></i><span id="status-label">Checking</span></span>
+  </header>
+
+  <main>
+    <p class="line" id="line" role="status" aria-live="polite"></p>
+    <section class="work" id="work" aria-label="Jobs working in Chrome"></section>
+    <p class="diagnostic" id="diagnostic" hidden></p>
+    <div class="actions" id="actions"></div>
+  </main>
+
+  <footer>
+    <label class="setting">
+      <span class="switch"><input type="checkbox" id="cursor-toggle" checked><span class="track"></span><span class="knob"></span></span>
+      <span>Show HeyClicky’s cursor</span>
+    </label>
+    <a href="https://heyclicky.com/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+  </footer>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

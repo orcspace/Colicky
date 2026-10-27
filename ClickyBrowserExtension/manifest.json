@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "HeyClicky",
+  "short_name": "HeyClicky",
+  "version": "0.6.3",
+  "description": "Let HeyClicky’s background jobs work in the sites you’re signed into, only for what you ask. Stop them anytime.",
+  "homepage_url": "https://heyclicky.com",
+  "minimum_chrome_version": "120",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtpv/WiVnTE7CsKLotOXySB3rDOxHfZwbkRJ5w91J/SDSchuMgOc19nSEBnHj6CDRvEmhoVJppf3kZXcSljSnq2jpqQPEy0olgkRmXpDebav1vfIqxzLtZ3AdiSWLS76xakeoq/ck3DYQmjcbv2759y0uJFQLuArOKErXZstEH4XVt7A7fNBvTyUec9MwpD3PFaAN7VbrTvjTh+2x1OJn1irs+lUIeRDoBLB+eAaZNLfLdJknPGmktlOywd0CXdRtC15VIMBRCnUB6/xYzgR/EffD1QEYlzfIItDHpNlBPIhSK22QCehtJrM9AsiyHeEk6wvjPKoqJsaRkEqUXhp2ZQIDAQAB",
+  "permissions": [
+    "debugger",
+    "tabs",
+    "nativeMessaging",
+    "storage",
+    "alarms",
+    "tabGroups",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "HeyClicky",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/toolbar-16.png",
+      "32": "icons/toolbar-32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

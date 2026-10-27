@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>HeyClicky</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net9.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Microsoft.InteractiveExperiences.Projection">
+      <HintPath>../../.cache/original/lib/app/Microsoft.InteractiveExperiences.Projection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WinUI">
+      <HintPath>../../.cache/original/lib/app/Microsoft.WinUI.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRT.Runtime">
+      <HintPath>../../.cache/original/lib/app/WinRT.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="HeyClicky.Core">
+      <HintPath>../../.cache/original/lib/app/HeyClicky.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.SDK.NET">
+      <HintPath>../../.cache/original/lib/app/Microsoft.Windows.SDK.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="HeyClicky.Agents">
+      <HintPath>../../.cache/original/lib/app/HeyClicky.Agents.dll</HintPath>
+    </Reference>
+    <Reference Include="HeyClicky.Drawing">
+      <HintPath>../../.cache/original/lib/app/HeyClicky.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="HeyClicky.Platform">
+      <HintPath>../../.cache/original/lib/app/HeyClicky.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Graphics.Canvas.Interop">
+      <HintPath>../../.cache/original/lib/app/Microsoft.Graphics.Canvas.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Sentry">
+      <HintPath>../../.cache/original/lib/app/Sentry.dll</HintPath>
+    </Reference>
+    <Reference Include="Velopack">
+      <HintPath>../../.cache/original/lib/app/Velopack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core.Projection">
+      <HintPath>../../.cache/original/lib/app/Microsoft.Web.WebView2.Core.Projection.dll</HintPath>
+    </Reference>
+    <Reference Include="CommunityToolkit.Mvvm">
+      <HintPath>../../.cache/original/lib/app/CommunityToolkit.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="HeyClicky.Drawing3D">
+      <HintPath>../../.cache/original/lib/app/HeyClicky.Drawing3D.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData">
+      <HintPath>../../.cache/original/lib/app/System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="../HeyClicky.Contracts/HeyClicky.Contracts.csproj" />
+  </ItemGroup>
+</Project>

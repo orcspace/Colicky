@@ -1,0 +1,58 @@
+/* The popup: the notch's black, 280 wide. The pieces (mark, gel, switch, live card) are in ui.css. */
+body { width: 280px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 14px 9px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; }
+.brand b { font-size: 12.5px; font-weight: 600; letter-spacing: -0.005em; color: var(--label); }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.status i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.status.ready { color: var(--ready); }
+.status.needs { color: var(--needs); }
+.status.quiet { color: var(--secondary); }
+.status.quiet i { opacity: 0.7; }
+.status.working { color: var(--label); }
+.status.working i { display: none; }
+.status.checking i { animation: dot 1.4s ease-in-out infinite; }
+@keyframes dot { 50% { opacity: 0.25; } }
+
+main { padding: 0 14px 13px; display: flex; flex-direction: column; gap: 11px; }
+.line { font-size: 12px; line-height: 1.42; color: var(--secondary); text-wrap: pretty; }
+.line strong { color: var(--label); font-weight: 600; }
+.line.with-glyph { display: flex; gap: 7px; align-items: flex-start; }
+.line .tick { flex: none; margin-top: 1px; width: 15px; height: 15px; border-radius: 50%; background: var(--ready); display: grid; place-items: center; }
+.line .tick::after { content: ""; width: 4px; height: 7.5px; margin-top: -2px; border: solid #04210F; border-width: 0 1.8px 1.8px 0; transform: rotate(45deg); }
+
+/* Each working Clicky: Nilesh's live card. */
+.work { display: flex; flex-direction: column; gap: 8px; }
+.work:empty { display: none; }
+.card { display: flex; flex-direction: column; gap: 8px; animation: arrive 0.32s cubic-bezier(.2, .8, .3, 1) both; }
+@keyframes arrive { from { opacity: 0; transform: translateY(4px) scale(0.985); } }
+.card .head { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.card .head b { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.card .live, .card .waiting, .card .tabs { margin-left: 22px; }
+.card .live { margin-top: -3px; }
+.card .waiting { margin-top: -3px; font-size: 11.5px; font-weight: 500; color: rgba(43, 38, 32, 0.6); }
+.tabs { display: flex; flex-direction: column; gap: 1px; margin-right: -6px; }
+.tab { display: flex; align-items: center; gap: 7px; width: 100%; min-width: 0; height: 24px; margin-left: -6px; padding: 0 6px; border-radius: 7px; text-align: left; color: rgba(43, 38, 32, 0.78); font-size: 11.5px; font-weight: 500; transition: background 0.12s; }
+.tab:hover { background: rgba(43, 38, 32, 0.07); }
+.tab:focus-visible { outline-offset: 0; }
+.tab img, .tab .globe { flex: none; width: 14px; height: 14px; border-radius: 3px; }
+.tab .globe { border-radius: 50%; background: rgba(43, 38, 32, 0.45);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.4'><circle cx='8' cy='8' r='6.3'/><path d='M1.8 8h12.4M8 1.7c1.8 2 2.6 4 2.6 6.3S9.8 12.3 8 14.3M8 1.7C6.2 3.7 5.4 5.7 5.4 8s.8 4.3 2.6 6.3'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.4'><circle cx='8' cy='8' r='6.3'/><path d='M1.8 8h12.4M8 1.7c1.8 2 2.6 4 2.6 6.3S9.8 12.3 8 14.3M8 1.7C6.2 3.7 5.4 5.7 5.4 8s.8 4.3 2.6 6.3'/></svg>") center / contain no-repeat; }
+.tab .title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab .go { flex: none; display: none; font-size: 10.5px; font-weight: 600; color: rgba(43, 38, 32, 0.5); }
+.tab:hover .go, .tab:focus-visible .go { display: inline; }
+.more { margin-left: 22px; font-size: 10.5px; font-weight: 600; color: rgba(43, 38, 32, 0.45); }
+
+.actions { display: flex; flex-direction: column; gap: 8px; }
+.actions:empty { display: none; }
+.actions .quiet { align-self: center; font-size: 11px; }
+.diagnostic { font: 10px/1.45 ui-monospace, Menlo, monospace; color: var(--tertiary); word-break: break-word; }
+
+footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px 12px; border-top: 1px solid var(--hair); font-size: 11px; color: var(--secondary); }
+.setting { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--label); }
+
+@media (prefers-reduced-motion: reduce) { .card { animation: none; } .status.checking i { animation: none; } }

@@ -1,0 +1,16 @@
+{
+  "installer_url": "https://github.com/heyclicky/clicky-releases-windows/releases/download/v1.1.3/HeyClickyApp-win-x64-Setup.exe",
+  "installer_sha256": "f29277ef315ec3d49301db4a101739df91a59de59457a9715a01626959f7d562",
+  "decompiler": "ILSpy 11.2.0.10050",
+  "assemblies": [
+    "HeyClicky.Contracts",
+    "HeyClicky.Core",
+    "HeyClicky.Platform",
+    "HeyClicky.Drawing",
+    "HeyClicky.Drawing3D",
+    "HeyClicky.Agents",
+    "HeyClicky"
+  ],
+  "csharp_files": 2009,
+  "status": "Recovered source; see docs/RECOVERY.md for build verification."
+}

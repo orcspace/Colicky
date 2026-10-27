@@ -1,0 +1,166 @@
+/* HeyClicky's look for the extension's pages, taken from the Mac app rather than drawn again: the notch's black and
+   its type colours (DS.Colors), Nilesh's live card (NotchHeyClickyChatLiveWorkCard), the gel buttons and switch
+   (ClickyGelSurface: the landing page's `.btn.mac` and `.btn.os-win`), the chat's bubbles (HomeSpaceMessageBubble). */
+:root {
+  color-scheme: dark;
+  --black: #000;
+  --label: #ECECEF;          /* DS.Colors.textPrimary */
+  --secondary: #9093A0;      /* DS.Colors.textSecondary */
+  --tertiary: #5C5E6A;       /* DS.Colors.textTertiary */
+  --hair: rgba(255, 255, 255, 0.08);
+  --panel: rgba(255, 255, 255, 0.045);
+  --ready: #4CC874;
+  --needs: #F2B458;
+  --focus: #8EC5FF;
+  /* The live card's paper and ink. */
+  --paper-top: #ECEBED;
+  --paper-bottom: #F7F7F7;
+  --ink: #2B2620;
+  --working: #1F9E4A;        /* ClickyCardStyle.working */
+  /* The chat. */
+  --bubble-in: #3B3B3D;
+  --gel-1: #EDF4FF; --gel-2: #D6E7FF; --gel-3: #A2C7FF; --gel-4: #99CBF8; --gel-5: #A2D2F7;
+  --gel-rim: #221898;
+  --white-1: #FBFBFB; --white-2: #EDEDED; --white-3: #E4E4E4; --white-rim: #626262;
+  --system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--black); color: var(--label); }
+body { font: 12px/1.38 var(--system); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+a { color: inherit; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+/* ---- The ⌃⌥ mark (mark.js draws it in a 48 × 31 view box). ---- */
+.mark { display: block; color: #fff; overflow: visible; }
+.mark path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- Gel buttons: 5-stop aqua, a solid indigo rim, a gloss strip on top, soft shading at the foot. ---- */
+.gel {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 30px; padding: 7px 15px; border-radius: 15px;
+  font: 600 12.5px/1 var(--system); color: #000;
+  text-shadow: 0 1.5px 1px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(var(--gel-1) 0%, var(--gel-2) 18%, var(--gel-3) 50%, var(--gel-4) 80%, var(--gel-5) 100%);
+  border: 1px solid var(--gel-rim);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.11);
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+  white-space: nowrap; user-select: none;
+}
+/* The LP's `.gl` strip across the top. */
+.gel::before {
+  content: ""; position: absolute; z-index: -1; left: 12px; right: 12px; top: 3px; height: 7px; border-radius: 999px;
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.02));
+  transition: opacity 0.15s;
+}
+/* Base shading and reflected light at the foot. */
+.gel::after {
+  content: ""; position: absolute; z-index: -1; left: 4px; right: 4px; bottom: 2px; height: 12px; border-radius: 999px;
+  background:
+    radial-gradient(50% 120% at 50% 100%, rgba(255, 255, 255, 0.32), transparent 70%) center bottom 1px / calc(100% - 12px) 3px no-repeat,
+    linear-gradient(transparent, rgba(67, 90, 135, 0.26));
+}
+.gel:hover { transform: scale(1.03); }
+.gel:hover::before { background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.02)); }
+.gel:active { transform: scale(0.985); filter: brightness(0.98); }
+.gel:disabled { cursor: default; transform: none; color: #34455A; opacity: 0.8; }
+.gel.wide { width: 100%; }
+.gel.white {
+  background: linear-gradient(var(--white-1) 0%, var(--white-2) 42%, var(--white-3) 100%);
+  border-color: var(--white-rim);
+}
+/* Quiet actions on the black: a hairline rim and a breath of aqua. */
+.gel.outline {
+  color: rgba(255, 255, 255, 0.86); text-shadow: none; box-shadow: none;
+  background: linear-gradient(rgba(237, 244, 255, 0.08), rgba(162, 199, 255, 0.08) 50%, rgba(162, 210, 247, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gel.outline::before { opacity: 0.12; }
+.gel.outline::after { opacity: 0; }
+.gel.outline:hover { background: linear-gradient(rgba(237, 244, 255, 0.16), rgba(162, 199, 255, 0.16) 50%, rgba(162, 210, 247, 0.16)); border-color: rgba(255, 255, 255, 0.3); }
+/* The app's Stop: a solid square. */
+.gel .square { width: 9px; height: 9px; border-radius: 2.5px; background: #000; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
+
+/* A quiet link beside or under a gel button. */
+.quiet { font-size: 11.5px; color: var(--secondary); text-decoration: none; }
+.quiet:hover { color: var(--label); }
+
+/* ---- The gel switch (ClickyGelSwitch, at popup size). ---- */
+.switch { position: relative; display: inline-block; flex: none; width: 32px; height: 18px; }
+.switch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; z-index: 2; }
+.switch .track {
+  position: absolute; inset: 0; border-radius: 999px; overflow: hidden;
+  background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: background 0.28s;
+}
+.switch .track::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0; transition: opacity 0.28s;
+  background: linear-gradient(var(--gel-1) 0%, var(--gel-2) 18%, var(--gel-3) 50%, var(--gel-4) 80%, var(--gel-5) 100%);
+  box-shadow: inset 0 0 0 1px var(--gel-rim);
+}
+.switch .track::after {
+  content: ""; position: absolute; left: 6px; right: 6px; top: 2px; height: 4px; border-radius: 999px; opacity: 0; transition: opacity 0.28s;
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.02));
+}
+.switch .knob {
+  position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 999px; z-index: 1;
+  background: rgba(255, 255, 255, 0.65); box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.18);
+  transition: transform 0.28s cubic-bezier(.3, .7, .3, 1), width 0.18s, background 0.28s;
+}
+.switch input:checked ~ .track::before, .switch input:checked ~ .track::after { opacity: 1; }
+.switch input:checked ~ .knob { transform: translateX(14px); background: #fff; box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.3); }
+.switch input:active ~ .knob { width: 18px; }
+.switch input:checked:active ~ .knob { transform: translateX(10px); }
+.switch input:focus-visible ~ .track { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ---- Nilesh's live card. ---- */
+.card {
+  border-radius: 14px; padding: 12px 14px;
+  background: linear-gradient(var(--paper-top), var(--paper-bottom));
+  color: var(--ink);
+}
+.spinner {
+  flex: none; width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(31, 158, 74, 0.2); border-top-color: var(--working);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* The live line: its glyph, then the words with a soft light passing through them, left to right and back. */
+.live { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.live svg { flex: none; width: 15px; height: 15px; }
+.live svg path { fill: none; stroke: rgba(43, 38, 32, 0.62); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.breath { position: relative; min-width: 0; flex: 1; font: 500 11.5px/1.3 var(--system); white-space: nowrap; }
+.breath span { display: block; overflow: hidden; text-overflow: ellipsis; }
+.breath .rest { color: rgba(43, 38, 32, 0.5); }
+.breath .light {
+  position: absolute; inset: 0; color: rgba(43, 38, 32, 0.95);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 50%, transparent 100%);
+  -webkit-mask-size: 45% 100%; mask-size: 45% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  animation: breathe 3.4s ease-in-out infinite;
+}
+/* The app's pass: a band 45% of the line wide, from just off the left to just off the right in 1.7 s, and back. */
+@keyframes breathe {
+  0% { -webkit-mask-position: -82% 0; mask-position: -82% 0; }
+  50% { -webkit-mask-position: 182% 0; mask-position: 182% 0; }
+  100% { -webkit-mask-position: -82% 0; mask-position: -82% 0; }
+}
+.breath.on-black .rest { color: rgba(236, 236, 239, 0.45); }
+.breath.on-black .light { color: rgba(236, 236, 239, 0.95); }
+
+/* ---- The chat's bubbles; bubble.js draws the tail. ---- */
+.bubble { position: relative; isolation: isolate; padding: 7px 12px 14px; font: 13px/1.38 var(--system); max-width: 340px; }
+.bubble > svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; }
+.bubble.in { color: #fff; }
+.bubble.out { color: rgba(0, 0, 0, 0.86); }
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation-duration: 2.4s; }
+  .breath .light { animation: none; opacity: 0; }
+  .gel, .switch .knob, .switch .track, .switch .track::before { transition: none; }
+}
