@@ -129,7 +129,7 @@ public static class ClickyInkDashboardSplit
 							span2.CopyTo(span.Slice(num3, span2.Length));
 							num3 += span2.Length;
 							span[num3] = run[0].Id;
-							columns3 = columns3 with { Right = list3 };
+							columns2 = columns3 with { Right = list3 };
 						}
 						else
 						{
@@ -145,7 +145,7 @@ public static class ClickyInkDashboardSplit
 							span.CopyTo(span2.Slice(num2, span.Length));
 							num2 += span.Length;
 							span2[num2] = run[0].Id;
-							columns4 = columns4 with { Left = list4 };
+							columns2 = columns4 with { Left = list4 };
 						}
 						list2[num] = columns2;
 						columnHeights[num] = ((value.Item1 <= value.Item2) ? (value.Item1 + list[0], value.Item2) : (value.Item1, value.Item2 + list[0]));
