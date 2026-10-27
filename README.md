@@ -1,5 +1,31 @@
-# Colicky — recovery workspace
+# Colicky — восстановление HeyClicky Windows 1.1.3
 
-Recovery of HeyClicky Windows 1.1.3 from the published installer. Recovered C# is being imported as unpacked files. This is not yet a verified source build.
+В репозитории лежат **распакованные C#-файлы и ресурсы**, восстановленные из Windows-установщика. Это .NET 9 / WinUI 3, не Electron. Это восстановленный клиент, а не исходный авторский репозиторий.
 
-Source provenance: https://github.com/heyclicky/clicky-releases-windows/releases/tag/v1.1.3
+- [Архитектура](docs/ARCHITECTURE.md)
+- [Функции](docs/FEATURES.md)
+- [Что восстановлено и как проверить](docs/RECOVERY.md)
+- [Все файлы и публичные объявления](docs/SOURCE_INDEX.md)
+- [Windows CI](https://github.com/orcspace/Colicky/actions)
+
+## Сборка и запуск на Windows x64
+
+Установите Python 3 и .NET SDK 10. Для запуска нужен .NET 9 runtime из оригинального self-contained пакета — скрипт скачивает его вместе с зависимостями, сверяя SHA-256.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build.ps1 -Prepare
+# После успешной сборки и подготовки:
+powershell -ExecutionPolicy Bypass -File scripts/build.ps1 -Launch
+```
+
+Скрипт компилирует собственные managed DLL и накладывает их на копию исходного runtime в `artifacts/runtime`. Нативные библиотеки, apphost и скомпилированные ресурсы используются из установщика. Успешная компиляция не подтверждает работу UI, микрофона, GPU и внешнего AI backend.
+
+Для запуска **исходной упакованной версии**, без подмены DLL результатами сборки, отдельно доступен `scripts/launch-original.ps1`. Это не считается восстановлением исходников.
+
+## Воспроизводимость
+
+`scripts/recover.py` проверяет хеш установщика и не запускает его. Основной декомпилятор — ILSpy 11.2.0.10050; пустые/пропущенные файлы дополняются выводом 9.1.0.7988. `scripts/repair.py` исправляет project references и конкретные ошибки восстановления C#. GitHub Actions сохраняет результат как обычные файлы и проверяет сборку всех модулей на Windows.
+
+## Что отсутствует
+
+Оригинальные комментарии, Git-история, исходная XAML-разметка, серверный Worker, база Supabase, секреты провайдеров и исходники нативных runtime-компонентов не восстановлены. Вход, AI, платежи и ряд интеграций требуют существующих или заново реализованных серверных сервисов. Извлечение текста Office-файлов не означает полноценный офисный редактор.
